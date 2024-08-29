@@ -21,6 +21,11 @@ use std::net::IpAddr;
 
 mod de;
 
+#[cfg(feature = "nvidia-device-plugin")]
+pub const NVIDIA_DEVICE_PLUGIN_FEATURE_ENABLED: bool = true;
+#[cfg(not(feature = "nvidia-device-plugin"))]
+pub const NVIDIA_DEVICE_PLUGIN_FEATURE_ENABLED: bool = false;
+
 // Kubernetes static pod manifest settings
 #[model]
 pub struct StaticPod {
